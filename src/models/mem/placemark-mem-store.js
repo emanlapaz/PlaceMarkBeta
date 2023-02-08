@@ -7,7 +7,7 @@ export const placemarkMemStore = {
     return placemarks;
   },
 
-  async addPlaylist(placemark) {
+  async addPlacemark(placemark) {
     placemark._id = v4();
     placemarks.push(placemark);
     return placemark;
