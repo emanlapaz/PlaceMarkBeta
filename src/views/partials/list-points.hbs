@@ -1,0 +1,30 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Points</th>
+      <th>Category</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each placemark.points}}
+      <tr>
+        <td>
+          {{points}}
+        </td>
+        <td>
+          {{category}}
+        </td>
+        <td>
+          {{location}}
+        </td>
+        <td>
+          <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
