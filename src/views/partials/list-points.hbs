@@ -1,17 +1,16 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th>Points</th>
+      <th>Point</th>
       <th>Category</th>
       <th>Location</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     {{#each placemark.points}}
       <tr>
         <td>
-          {{points}}
+          {{title}}{{!name or title}}
         </td>
         <td>
           {{category}}
@@ -21,7 +20,7 @@
         </td>
         <td>
           <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="ui icon button">
-            <i class="fas fa-trash"></i>
+          <i class="fas fa-trash"></i>
           </a>
         </td>
       </tr>

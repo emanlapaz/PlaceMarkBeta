@@ -1,6 +1,7 @@
+import { aboutController } from "./controllers/about-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
-import { aboutController } from "./controllers/about-controller.js";
+import { placemarkController } from "./controllers/placemark-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -10,9 +11,15 @@ export const webRoutes = [
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
 
+  { method: "GET", path: "/about", config: aboutController.index },
+
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addplacemark", config: dashboardController.addPlacemark },
-  { method: "GET", path: "/about", config: aboutController.index }
+  { method: "GET", path: "/dashboard/deleteplacemark/{id}", config: dashboardController.deletePlacemark },
+
+  { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
+  { method: "POST", path: "/placemark/{id}/addpoint", config: placemarkController.addPoint },
+  { method: "GET", path: "/placemark/{id}/deletepoint/{pointid}", config: placemarkController.deletePoint },
+
 
 ];
-

@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { pointMemStore } from "./point-mem-store.js";
 
 let placemarks = [];
 
@@ -14,7 +15,9 @@ export const placemarkMemStore = {
   },
 
   async getPlacemarkById(id) {
-    return placemarks.find((placemark) => placemark._id === id);
+    const list = placemarks.find((placemark) => placemark._id === id);
+    list.points = await pointMemStore.getPointsByPlacemarkId(list._id);
+    return list;
   },
 
   async deletePlacemarkById(id) {
