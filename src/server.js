@@ -1,11 +1,15 @@
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
+import Cookie from "@hapi/cookie";
 import Handlebars from "handlebars";
 import path from "path";
+import dotenv from "dotenv";
+import Joi from "joi";
+
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
-import dotenv from "dotenv";
+import { accountsController } from "./controllers/accounts-controller.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +26,9 @@ async function init() {
     host: "localhost",
   });
   await server.register(Vision);
+  await server.register(Cookie);
+  server.validator(Joi);
+  
   server.views({
     engines: {
       hbs: Handlebars,
