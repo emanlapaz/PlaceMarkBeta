@@ -1,3 +1,4 @@
+import { PointSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
 export const placemarkController = {
@@ -13,10 +14,18 @@ export const placemarkController = {
   },
 
   addPoint: {
+    validate: {
+      payload: PointSpec,
+      options: { abortEarly: false },
+      failAction: async function (request, h, error) {
+        const currentPlacemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+        return h.view("placemark-view", { title: "Add point error", placemark:currentPlacemark, errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const newPoint = {
-        title: request.payload.title, // name to title
+        pointName: request.payload.pointName, // title or name?
         category: request.payload.category,
         location: request.payload.location,
       };

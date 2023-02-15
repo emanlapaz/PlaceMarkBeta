@@ -1,3 +1,4 @@
+import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
 export const dashboardController = {
@@ -13,9 +14,18 @@ export const dashboardController = {
   },
 
   addPlacemark: {
+    validate: {
+      payload: PlacemarkSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("dashboard-view", { title: "Add Placemark error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
       const newPlaceMark = {
-        title: request.payload.title,
+        userid: loggedInUser._id,
+        placeMark: request.payload.placeMark, // title or name?
       };
       await db.placemarkStore.addPlacemark(newPlaceMark);
       return h.redirect("/dashboard");

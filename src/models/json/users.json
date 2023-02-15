@@ -13,6 +13,20 @@
       "email": "marge@simpson.com",
       "password": "123",
       "_id": "259e5981-ed0c-473b-93dc-72f9d54686ed"
+    },
+    {
+      "firstName": "Eugene",
+      "lastName": "Manlapaz",
+      "email": "homer@simpson.com",
+      "password": "1",
+      "_id": "c80e1ac4-1632-4dbb-9369-a559ed33f2f3"
+    },
+    {
+      "firstName": "Eugenio",
+      "lastName": "Manlapaz",
+      "email": "bart@simpson.com",
+      "password": "1",
+      "_id": "184931e0-e913-4945-a012-91c14d2ab18a"
     }
   ]
 }
