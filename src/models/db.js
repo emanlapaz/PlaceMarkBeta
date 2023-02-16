@@ -8,6 +8,7 @@ import { pointJsonStore } from "./json/point-json-store.js";
 
 import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
+import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
 
 export const db = {
   userStore: null,
@@ -24,6 +25,7 @@ export const db = {
 
       case "mongo":
         this.userStore = userMongoStore;
+        this.placemarkStore = placemarkMongoStore;
         connectMongo();
         break;
         
