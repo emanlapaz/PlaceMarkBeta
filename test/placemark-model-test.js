@@ -2,12 +2,15 @@ import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testPlacemarks, kildare } from "./fixtures.js"; // changed mozart to kildare
 
+// migrate to mongo
 suite("Placemark Model tests", () => {
 
-  setup(async () => {
+/*  setup(async () => {
     db.init(""); // changed to mem
 //  setup(async () => {
-//      db.init("json");
+//      db.init("json"); */
+setup(async () => {
+  db.init("mongo");
     await db.placemarkStore.deleteAllPlacemarks();
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -17,6 +20,7 @@ suite("Placemark Model tests", () => {
 
   test("create a placemark", async () => {
     const placemark = await db.placemarkStore.addPlacemark(kildare);
+    // assertSubset(kildare, placemark);
     assert.equal(kildare, placemark);
     assert.isDefined(placemark._id);
   });
