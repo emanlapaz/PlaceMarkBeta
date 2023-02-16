@@ -2,6 +2,7 @@ import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testPlacemarks, kildare } from "./fixtures.js"; // changed mozart to kildare
 
+// migrate to mongo
 suite("Placemark Model tests", () => {
 
   setup(async () => {
