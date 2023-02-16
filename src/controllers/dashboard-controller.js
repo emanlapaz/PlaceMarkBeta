@@ -25,7 +25,7 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const newPlaceMark = {
         userid: loggedInUser._id,
-        placeMark: request.payload.placeMark, // title or name?
+        placeMark: request.payload.placeMark, // title
       };
       await db.placemarkStore.addPlacemark(newPlaceMark);
       return h.redirect("/dashboard");
