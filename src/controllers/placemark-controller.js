@@ -18,9 +18,8 @@ export const placemarkController = {
       payload: PointSpec,
       options: { abortEarly: false },
       failAction: async function (request, h, error) {
-        const currentPlacemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-        return h.view("placemark-view", { title: "Add point error", placemark:currentPlacemark, errors: error.details }).takeover().code(400);
-      },
+        return h.view("placemark-view", { title: "Add point error", errors: error.details }).takeover().code(400);
+      }, // edited here
     },
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);

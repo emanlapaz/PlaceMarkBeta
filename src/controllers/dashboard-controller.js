@@ -4,7 +4,8 @@ import { db } from "../models/db.js";
 export const dashboardController = {
   index: {
     handler: async function (request, h) {
-      const placemarks = await db.placemarkStore.getAllPlacemarks();
+      const loggedInUser = request.auth.credentials;
+      const placemarks = await db.placemarkStore.getUserPlacemarks(loggedInUser._id);
       const viewData = {
         title: "PlaceMark Dashboard",
         placemarks: placemarks,
@@ -13,7 +14,7 @@ export const dashboardController = {
     },
   },
 
-  addPlacemark: {
+  addPlacemark: { 
     validate: {
       payload: PlacemarkSpec,
       options: { abortEarly: false },
