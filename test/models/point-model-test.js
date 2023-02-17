@@ -1,7 +1,7 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testPlacemarks, testPoints, naas, dublin, kildare, testUsers } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testPlacemarks, testPoints, naas, dublin, kildare, testUsers } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Point Model tests", () => {
 

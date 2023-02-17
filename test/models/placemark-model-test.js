@@ -1,10 +1,11 @@
 import { EventEmitter } from "events";
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testPlacemarks, kildare } from "./fixtures.js"; // changed mozart to kildare
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testPlacemarks, kildare } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
-// migrate to mongo
+EventEmitter.setMaxListeners(25);
+
 suite("Placemark Model tests", () => {
   setup(async () => {
     db.init("mongo");
