@@ -1,3 +1,10 @@
 1. open new shell +mongod
 2. open studio 3t
 3.start npm run start
+
+
+to do:
+1. lab 8 tests fail
+        
+2. added points not showing
+    *placemark name showing

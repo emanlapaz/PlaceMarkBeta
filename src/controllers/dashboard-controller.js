@@ -8,6 +8,7 @@ export const dashboardController = {
       const placemarks = await db.placemarkStore.getUserPlacemarks(loggedInUser._id);
       const viewData = {
         title: "PlaceMark Dashboard",
+        user: loggedInUser,
         placemarks: placemarks,
       };
       return h.view("dashboard-view", viewData);
@@ -40,5 +41,4 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
-
 };

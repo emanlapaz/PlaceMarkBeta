@@ -2,13 +2,14 @@ import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
 import { maggie, testUsers } from "../fixtures.js";
+import { db } from "../../src/models/db.js";
 
 suite("User API tests", () => {
   setup(async () => {
     await placemarkService.deleteAllUsers();
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testUsers[i] = await placemarkService.createUser(testUsers[i]);
+      testUsers[0] = await placemarkService.createUser(testUsers[i]);
     }
   });
   teardown(async () => {

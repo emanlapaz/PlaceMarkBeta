@@ -6,7 +6,7 @@ export const placemarkController = {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const viewData = {
-        title: "Placemark", // title-> name
+        title: "Placemark",
         placemark: placemark,
       };
       return h.view("placemark-view", viewData);
@@ -19,12 +19,12 @@ export const placemarkController = {
       options: { abortEarly: false },
       failAction: async function (request, h, error) {
         return h.view("placemark-view", { title: "Add point error", errors: error.details }).takeover().code(400);
-      }, // edited here
+      }, 
     },
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const newPoint = {
-        pointName: request.payload.pointName, // title or name?
+        pointName: request.payload.pointName,
         category: request.payload.category,
         location: request.payload.location,
       };
@@ -40,5 +40,4 @@ export const placemarkController = {
       return h.redirect(`/placemark/${placemark._id}`);
     },
   },
-
 };

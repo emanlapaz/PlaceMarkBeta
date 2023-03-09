@@ -1,13 +1,13 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th>Point</th>
+      <th>Point Name</th>
       <th>Category</th>
       <th>Location</th>
     </tr>
   </thead>
   <tbody>
-    {{#each placemark.points}}
+    {{#each placemark.points}} {{!placemark.points to placeMark.points}}
       <tr>
         <td>
           {{pointName}}{{!name or title}}

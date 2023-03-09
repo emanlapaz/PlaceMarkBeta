@@ -2,7 +2,6 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-
 import { maggie, kildare, testPlacemarks } from "../fixtures.js";
 
 
@@ -48,11 +47,11 @@ suite("Placemark API tests", () => {
       // eslint-disable-next-line no-await-in-loop
       await placemarkService.createPlacemark(testPlacemarks[i]);
     }
-    let returnedPlacemarks = await placemarkService.getAllPlacemarks();
-    assert.equal(returnedPlacemarks.length, testPlacemarks.length);
+    let returnedLists = await placemarkService.getAllPlacemarks();
+    assert.equal(returnedLists.length, testPlacemarks.length);
     await placemarkService.deleteAllPlacemarks();
-    returnedPlacemarks = await placemarkService.getAllPlacemarks();
-    assert.equal(returnedPlacemarks.length, 0);
+    returnedLists = await placemarkService.getAllPlacemarks();
+    assert.equal(returnedLists.length, 0);
   });
   
   test("remove non-existant placemark", async () => {

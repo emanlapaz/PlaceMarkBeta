@@ -1,4 +1,5 @@
 import { Point } from "./point.js";
+import { Placemark } from "./placemark.js";
 
 export const pointMongoStore = {
   async getAllPoints() {
