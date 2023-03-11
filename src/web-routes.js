@@ -21,5 +21,8 @@ export const webRoutes = [
   { method: "POST", path: "/placemark/{id}/addpoint", config: placemarkController.addPoint },
   { method: "GET", path: "/placemark/{id}/deletepoint/{pointid}", config: placemarkController.deletePoint },
 
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+
+
 
 ];

@@ -4,7 +4,5 @@
 
 
 to do:
-1. lab 8 tests fail
-        
-2. added points not showing
-    *placemark name showing
+1. add images to placemark view, and point view
+APIS lab 8 swagger hub
