@@ -13,9 +13,13 @@ suite("Placemark API tests", () => {
   let user = null;
 
   setup(async () => {
+      placemarkService.clearAuth();
+      user = await placemarkService.createUser(maggie);
+      await placemarkService.authenticate(maggie);
       await placemarkService.deleteAllPlacemarks();
       await placemarkService.deleteAllUsers();
       user = await placemarkService.createUser(maggie);
+      await placemarkService.authenticate(maggie);
       kildare.userid = user._id;
     });
 

@@ -8,10 +8,14 @@ suite("Point API tests", () => {
   let dublinAreas = null;
 
   setup(async () => {
-    await placemarkService.deleteAllPlacemarks();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllPoints();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllPoints();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     kildare.userid = user._id;
     dublinAreas = await placemarkService.createPlacemark(kildare);
   });

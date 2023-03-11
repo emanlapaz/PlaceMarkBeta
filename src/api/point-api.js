@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const pointApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const points = await db.pointStore.getAllPoints();
@@ -21,7 +23,9 @@ export const pointApi = {
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const point = await db.pointStore.getPointById(request.params.id);
@@ -41,7 +45,9 @@ export const pointApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const point = await db.pointStore.addPoint(request.params.id, request.payload);
@@ -61,7 +67,9 @@ export const pointApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.pointStore.deleteAllPoints();
@@ -75,7 +83,9 @@ export const pointApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const point = await db.pointStore.getPointById(request.params.id);
