@@ -11,6 +11,7 @@ export const pointController = {
         placemark: placemark,
         point: point,
       };
+      console.log("pointController index - viewData:", viewData);
       return h.view("point-view", viewData);
     },
   },
@@ -20,6 +21,7 @@ export const pointController = {
       payload: PointSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
+        console.log("pointController update - validation error:", error.details);
         return h.view("point-view", { title: "Edit point error", errors: error.details }).takeover().code(400);
       },
     },
@@ -30,7 +32,9 @@ export const pointController = {
         category: request.payload.category,
         location: request.payload.location,
       };
+      console.log("pointController update - newPoint:", newPoint);
       await db.pointStore.updatePoint(point, newPoint);
+      console.log("pointController update - point updated:", point);
       return h.redirect(`/placemark/${request.params.id}`);
     },
   },

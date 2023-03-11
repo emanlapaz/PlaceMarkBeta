@@ -8,7 +8,7 @@ export const pointMongoStore = {
   },
 
   async addPoint(placemarkId, point) {
-    point.placemarktid = placemarkId;
+    point.placemarkid = placemarkId;
     const newPoint = new Point(point);
     const pointObj = await newPoint.save();
     return this.getPointById(pointObj._id);
@@ -42,7 +42,7 @@ export const pointMongoStore = {
   async updatePoint(point, updatedPoint) {
     point.pointName = updatedPoint.pointName;
     point.category = updatedPoint.category;
-    track.location = updatedPoint.location;
+    point.location = updatedPoint.location;
     await point.save();
   },
 };
