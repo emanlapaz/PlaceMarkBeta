@@ -4,30 +4,23 @@
       <th>Point Name</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Category</th>
-      <th>Decription</th>
-      
+      <th>
+        Category
+        <button onclick="sortTable(3)">Sort</button>
+      </th>
+      <th>Description</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
     {{#each placemark.points}}
       <tr>
-        <td>
-          {{pointName}}
-        </td>
-         <td>
-          {{latitude}}
-        </td>
-          <td>
-          {{longitude}}
-        </td>
-        <td>
-          {{category}}
-        </td>
-        <td>
-          {{description}}
-        </td>
-        
+        <td>{{pointName}}</td>
+        <td>{{latitude}}</td>
+        <td>{{longitude}}</td>
+        <td>{{category}}</td>
+        <td>{{description}}</td>
         <td>
           <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="ui icon button">
             <i class="fas fa-edit"></i>
@@ -42,3 +35,30 @@
     {{/each}}
   </tbody>
 </table>
+
+
+{{!sort table}}
+<script>
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.querySelector('.table');
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName('TD')[n];
+        y = rows[i + 1].getElementsByTagName('TD')[n];
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+</script>
