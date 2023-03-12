@@ -6,6 +6,7 @@ const pointSchema = new Schema({
   pointName: String,
   category: String,
   location: String,
+  description: String,
   placemarkid: {
     type: Schema.Types.ObjectId,
     ref: "Placemark",

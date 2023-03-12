@@ -19,6 +19,7 @@ import { validate } from "./api/jwt-utils.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 const result = dotenv.config();
 if (result.error) {
   console.log(result.error.message);
@@ -50,6 +51,7 @@ async function init() {
   await server.register(Vision);
   await server.register(Cookie);
   await server.register(jwt);
+  
 
   await server.register([
     Inert,
@@ -104,5 +106,7 @@ process.on("unhandledRejection", (err) => {
   console.log(err);
   process.exit(1);
 });
+
+
 
 init();

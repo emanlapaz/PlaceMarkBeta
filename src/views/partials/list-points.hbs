@@ -2,8 +2,10 @@
   <thead>
     <tr>
       <th>Point Name</th>
-      <th>Category</th>
       <th>Location</th>
+      <th>Category</th>
+      <th>Decription</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -12,12 +14,16 @@
         <td>
           {{pointName}}
         </td>
+         <td>
+          {{location}}
+        </td>
         <td>
           {{category}}
         </td>
         <td>
-          {{location}}
+          {{description}}
         </td>
+        
         <td>
           <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="ui icon button">
             <i class="fas fa-edit"></i>

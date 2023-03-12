@@ -32,6 +32,8 @@ export const placemarkController = {
         pointName: request.payload.pointName,
         category: request.payload.category,
         location: request.payload.location,
+        description: request.payload.description,
+
       };
       await db.pointStore.addPoint(placemark._id, newPoint);
       console.log("Point added to placemark with ID:", placemark._id);

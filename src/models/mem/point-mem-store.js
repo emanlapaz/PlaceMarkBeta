@@ -35,9 +35,10 @@ export const pointMemStore = {
     points = [];
   },
 
-  async updatePoints(point, updatedPoint) { // name or title
+  async updatePoints(point, updatedPoint) {
     point.pointName= updatedPoint.pointName;
     point.category = updatedPoint.category;
     point.location = updatedPoint.location;
+    point.description = updatedPoint.description;
   },
 };

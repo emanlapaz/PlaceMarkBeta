@@ -31,6 +31,7 @@ export const pointController = {
         pointName: request.payload.pointName,
         category: request.payload.category,
         location: request.payload.location,
+        description: request.payload.description,
       };
       console.log("pointController update - newPoint:", newPoint);
       await db.pointStore.updatePoint(point, newPoint);

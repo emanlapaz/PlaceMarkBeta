@@ -26,6 +26,7 @@ export const PointSpec = Joi.object()
     pointName: Joi.string().required().example("Naas Canal"),
     category: Joi.string().required().example("Nature"),
     location: Joi.string().required().example("12"),
+    description: Joi.string().optional().example("Small Canal"),
     placemarkid: IdSpec,
   })
   .label("Point");

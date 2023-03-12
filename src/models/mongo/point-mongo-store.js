@@ -44,6 +44,7 @@ export const pointMongoStore = {
     pointDoc.pointName = updatedPoint.pointName;
     pointDoc.category = updatedPoint.category;
     pointDoc.location = updatedPoint.location;
+    pointDoc.description = updatedPoint.description;
     await pointDoc.save();
   },
 };

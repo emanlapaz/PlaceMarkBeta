@@ -1,5 +1,14 @@
 {{> menu}}
-
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Point Name</th>
+      <th>Location</th>
+      <th>Decription</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+</table>
 <form class="box"  action="/point/{{placemark._id}}/updatepoint/{{point._id}}" method="POST">
   <label>Update Point Details:</label>
   <div class="field is-horizontal">
@@ -8,12 +17,28 @@
         <input class="input" type="text" name="pointName", value="{{point.pointName}}">
       </div>
       <div class="field">
-        <input class="input" type="text" name="category" value="{{point.category}}">
-      </div>
-      <div class="field">
         <input class="input" type="text"  name="location" value="{{point.location}}">
       </div>
+      <div class="field">
+        <input class="input" type="text"  name="description" value="{{point.description}}">
+      </div>
     </div>
+      <div class="field">
+        <div class="select">
+          <select name="category">
+            <option value="" disabled selected>Select a Category</option>
+           <option value="Nature">Nature</option>
+            <option value="Sports">Sports</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="History">History</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Shop">Shop</option>
+            <option value="Parking Space">Parking Space</option>
+            <option value="Landmark">Landmark</option>
+          </select>
+        </div>
+      </div>
   </div>
   <button class="button is-primary">Update Point</button>
 </form>
