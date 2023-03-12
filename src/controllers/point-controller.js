@@ -30,7 +30,8 @@ export const pointController = {
       const newPoint = {
         pointName: request.payload.pointName,
         category: request.payload.category,
-        location: request.payload.location,
+        latitude: request.payload.latitude,
+        longitude: request.payload.longitude,
         description: request.payload.description,
       };
       console.log("pointController update - newPoint:", newPoint);

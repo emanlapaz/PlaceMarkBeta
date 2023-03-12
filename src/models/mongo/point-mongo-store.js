@@ -43,7 +43,8 @@ export const pointMongoStore = {
     const pointDoc = await Point.findOne({ _id: point._id });
     pointDoc.pointName = updatedPoint.pointName;
     pointDoc.category = updatedPoint.category;
-    pointDoc.location = updatedPoint.location;
+    pointDoc.latitude = updatedPoint.latitude;
+    pointDoc.longitude = updatedPoint.longitude;
     pointDoc.description = updatedPoint.description;
     await pointDoc.save();
   },

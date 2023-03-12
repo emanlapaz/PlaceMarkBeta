@@ -3,7 +3,8 @@
   <thead>
     <tr>
       <th>Point Name</th>
-      <th>Location</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>Decription</th>
       <th>Category</th>
     </tr>
@@ -17,7 +18,10 @@
         <input class="input" type="text" name="pointName", value="{{point.pointName}}">
       </div>
       <div class="field">
-        <input class="input" type="text"  name="location" value="{{point.location}}">
+        <input class="input" type="text"  name="latitude" value="{{point.latitude}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="longitude" value="{{point.longitude}}">
       </div>
       <div class="field">
         <input class="input" type="text"  name="description" value="{{point.description}}">
@@ -27,15 +31,10 @@
         <div class="select">
           <select name="category">
             <option value="" disabled selected>Select a Category</option>
-           <option value="Nature">Nature</option>
+            <option value="Nature">Nature</option>
             <option value="Sports">Sports</option>
-            <option value="Health">Health</option>
-            <option value="Education">Education</option>
             <option value="History">History</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Shop">Shop</option>
-            <option value="Parking Space">Parking Space</option>
-            <option value="Landmark">Landmark</option>
+            <option value="Food">Food</option>
           </select>
         </div>
       </div>
