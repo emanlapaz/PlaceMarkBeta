@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggie, kildare, testPlacemarks, testPoints, naas } from "../fixtures.js";
+import { maggie, kildare, maggieCredentials, testPlacemarks, testPoints, naas } from "../fixtures.js";
 
 suite("Point API tests", () => {
   let user = null;
@@ -10,12 +10,12 @@ suite("Point API tests", () => {
   setup(async () => {
     placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllPlacemarks();
     await placemarkService.deleteAllPoints();
     await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     kildare.userid = user._id;
     dublinAreas = await placemarkService.createPlacemark(kildare);
   });

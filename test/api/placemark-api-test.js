@@ -2,7 +2,7 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, kildare, testPlacemarks } from "../fixtures.js";
+import { maggie, maggieCredentials, kildare, testPlacemarks } from "../fixtures.js";
 
 
 
@@ -15,11 +15,11 @@ suite("Placemark API tests", () => {
   setup(async () => {
       placemarkService.clearAuth();
       user = await placemarkService.createUser(maggie);
-      await placemarkService.authenticate(maggie);
+      await placemarkService.authenticate(maggieCredentials);
       await placemarkService.deleteAllPlacemarks();
       await placemarkService.deleteAllUsers();
       user = await placemarkService.createUser(maggie);
-      await placemarkService.authenticate(maggie);
+      await placemarkService.authenticate(maggieCredentials);
       kildare.userid = user._id;
     });
 

@@ -6,3 +6,5 @@
 to do:
 1. add images to placemark view, and point view
 APIS lab 8 swagger hub
+
+mongodb: mongodb+srv://eugeniojrmanlapaz:<password>@cluster2.er6jile.mongodb.net/?retryWrites=true&w=majority

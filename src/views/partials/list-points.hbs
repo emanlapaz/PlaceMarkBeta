@@ -7,16 +7,21 @@
     </tr>
   </thead>
   <tbody>
-    {{#each placemark.points}} {{!placemark.points to placeMark.points}}
+    {{#each placemark.points}}
       <tr>
         <td>
-          {{pointName}}{{!name or title}}
+          {{pointName}}
         </td>
         <td>
           {{category}}
         </td>
         <td>
           {{location}}
+        </td>
+        <td>
+          <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="ui icon button">
+            <i class="fas fa-edit"></i>
+          </a>
         </td>
         <td>
           <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="ui icon button">

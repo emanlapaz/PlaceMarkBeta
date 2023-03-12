@@ -40,9 +40,10 @@ export const pointMongoStore = {
   },
 
   async updatePoint(point, updatedPoint) {
-    point.pointName = updatedPoint.pointName;
-    point.category = updatedPoint.category;
-    point.location = updatedPoint.location;
-    await point.save();
+    const pointDoc = await Point.findOne({ _id: point._id });
+    pointDoc.pointName = updatedPoint.pointName;
+    pointDoc.category = updatedPoint.category;
+    pointDoc.location = updatedPoint.location;
+    await pointDoc.save();
   },
 };

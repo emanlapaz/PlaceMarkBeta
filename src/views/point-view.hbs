@@ -1,0 +1,20 @@
+{{> menu}}
+
+<form class="box"  action="/point/{{placemark._id}}/updatepoint/{{point._id}}" method="POST">
+  <label>Update Point Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" name="pointName", value="{{point.pointName}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text" name="category" value="{{point.category}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="location" value="{{point.location}}">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Update Point</button>
+</form>
+
