@@ -7,3 +7,6 @@ to do:
 group into categories
 add images
 use coordinates for weather and map location
+
+
+https://www.latlong.net/

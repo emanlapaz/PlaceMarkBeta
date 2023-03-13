@@ -29,7 +29,11 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const newPlaceMark = {
         userid: loggedInUser._id,
-        placeMark: request.payload.placeMark, // title
+        placeMark: request.payload.placeMark,
+        lat: request.payload.lat,
+        long: request.payload.long,
+
+
       };
       console.log("New Placemark: ", newPlaceMark);
       await db.placemarkStore.addPlacemark(newPlaceMark);

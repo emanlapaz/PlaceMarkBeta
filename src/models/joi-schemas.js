@@ -43,6 +43,8 @@ export const PointArraySpec = Joi.array().items(PointSpecPlus).label("PointArray
 export const PlacemarkSpec = Joi.object()
   .keys({
     placeMark: Joi.string().required().example("Dublin"),
+    lat: Joi.string().required().example("12.00"),
+    long: Joi.string().required().example("-12.00"),
     userid: IdSpec,
     points: PointArraySpec,
   })
