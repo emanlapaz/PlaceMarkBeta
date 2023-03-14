@@ -7,7 +7,7 @@
         crossorigin=""></script>
   <div id="map"></div>
   <script>
-    const map = L.map("map").setView([53.42,-7.93], 2);
+    const map = L.map("map").setView([68.78, 27.47], 3);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -26,5 +26,5 @@
       });
     {{/each}}
   </script>
-  <style>#map { height: 600px; } </style>
+  <style>#map { height: 500px; } </style>
 </div>

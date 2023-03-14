@@ -8,5 +8,5 @@ group into categories
 add images
 use coordinates for weather and map location
 
-
+seed database
 https://www.latlong.net/

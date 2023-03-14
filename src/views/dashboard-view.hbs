@@ -1,7 +1,17 @@
 {{> menu active="dashboard"}}
 
 <section class="section">
-  {{> list-placemarks}}
-  {{> add-placemark}}
-  {{> dashmap}}
+  <div class="columns">
+    <div class="column is-one-third">
+      <p>Hello {{user.firstName}}!</p>
+      <p>Welcome to PlaceMark Beta!</p>
+       <p>Add a Location</p>
+       <br>
+      {{> add-placemark}}
+    </div>
+    <div class="column">
+      {{> dashmap}}
+    </div>
+  </div>
+  <div> {{> list-placemarks}}</div>
 </section>

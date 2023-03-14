@@ -9,6 +9,32 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to Placemark" });
     },
   },
+
+  showEdit: {
+    auth: false,
+    handler: function (request, h) {
+      console.log("showEdit handler called");
+      return h.view("user-view", { title: "Edit user details" });
+    },
+  },
+  edit: {
+    auth: false,
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        console.log("edit failAction called with error:", error);
+        return h.view("user-view", {title: "Sign up error", errors: error.details,}).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      console.log("signup handler called with payload:", request.payload);
+      const user = request.payload;
+      await db.userStore.updateUser(user);
+      return h.redirect("/dashboard");
+    },
+  },
+
   showSignup: {
     auth: false,
     handler: function (request, h) {
@@ -29,7 +55,7 @@ export const accountsController = {
     handler: async function (request, h) {
       console.log("signup handler called with payload:", request.payload);
       const user = request.payload;
-      await db.userStore.addUser(user);
+      await db.userStore.updateUser(user);
       return h.redirect("/");
     },
   },
