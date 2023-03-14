@@ -9,4 +9,5 @@ add images
 use coordinates for weather and map location
 
 seed database
+cloudinary
 https://www.latlong.net/
