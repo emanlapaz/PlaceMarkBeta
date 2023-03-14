@@ -34,13 +34,16 @@ export const maggie = {
   ];
   
   export const kildare = {
-    placeMark: "Kildare"
+    placeMark: "Kildare",
+    lat: "1",
+    long: "2",
   };
   
   export const naas = {
     "pointName": "Johnstown",
     "category": "Historic Site",
-    "location": "4"
+    "latitude": "1",
+    "longitude": "2",
   };
 
   export const dublin = {
@@ -49,13 +52,19 @@ export const maggie = {
   
   export const testPlacemarks = [
     {
-      placeMark: "Kildare Town"
+      placeMark: "Kildare Town",
+      lat: "1",
+      long: "2",
     },
     {
-      placeMark: "Newbridge"
+      placeMark: "Newbridge",
+      lat: "1",
+      long: "2",
     },
     {
-      placeMark: "Kilcullen"
+      placeMark: "Kilcullen",
+      lat: "1",
+      long: "2",
     }
   ];
 
@@ -63,17 +72,20 @@ export const maggie = {
     {
       "pointName": "Allen Hill",
       "category": "Nature",
-      "location": "1"
+      "latitude": "1",
+      "longitude": "2",
     },
     {
       "pointName": "Grand Canal",
       "category": "Historic Site",
-      "location": "2"
+      "latitude": "1",
+      "longitude": "2",
     },
     {
       "pointName": "Playbarn",
-      "category": "Activities",
-      "location": "3"
+      "category": "Sports",
+      "latitude": "1",
+      "longitude": "2",
     }
   ];
 
