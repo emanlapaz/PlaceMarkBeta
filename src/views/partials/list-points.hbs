@@ -1,40 +1,29 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Point Name</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>
-        Category
-        <button onclick="sortTable(3)">Sort</button>
-      </th>
-      <th>Description</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each placemark.points}}
-      <tr>
-        <td>{{pointName}}</td>
-        <td>{{latitude}}</td>
-        <td>{{longitude}}</td>
-        <td>{{category}}</td>
-        <td>{{description}}</td>
-        <td>
-          <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="ui icon button">
-            <i class="fas fa-edit"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="ui icon button">
-          <i class="fas fa-trash"></i>
-          </a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="columns is-multiline is-mobile">
+  {{#each placemark.points}}
+    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{imageUrl}}" alt="{{pointName}}">
+          </figure>
+        </div>
+        <div class="card-content">
+          <p class="title is-5">{{pointName}}</p>
+          <p class="subtitle is-6">Latitude: {{latitude}}</p>
+          <p class="subtitle is-6">Longitude: {{longitude}}</p>
+          <p class="subtitle is-6">Category: {{category}}</p>
+          <p class="content">{{description}}</p>
+        </div>
+        <footer class="card-footer">
+          <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="card-footer-item">Edit</a>
+          <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="card-footer-item">Delete</a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
 
 
 {{!sort table}}
