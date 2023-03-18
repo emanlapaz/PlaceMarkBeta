@@ -22,13 +22,13 @@ export const seedData = {
       pablo: {
         firstName: "Pablo",
         lastName: "Simpson",
-        email: "marge@simpson.com",
+        email: "pablo@simpson.com",
         password: "123"
       },
       chapo: {
         firstName: "Chapo",
         lastName: "Simpson",
-        email: "marge@simpson.com",
+        email: "chapo@simpson.com",
         password: "123"
       },
     },
@@ -38,6 +38,7 @@ export const seedData = {
         placeMark: "Naas",
         lat: "53.21",
         long: "-6.66",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1679141481/qzybo3th6tkrjiyc4xux.jpg",
         userid: "->users.homer"
       },
       Dublin: {
@@ -110,7 +111,7 @@ export const seedData = {
         latitude: "53.2232",
         longitude: "-6.6566",
         category:"Sports",
-        description:" A world-famous horse racing venue located just outside of Naas, County Kildare, Ireland. It hosts several major racing events each year, including the Irish National Hunt Festival.",
+        description:" A world-famous horse racing venue located just outside of Naas, County Kildare, Ireland.",
         placemarkid: "->placemarks.Naas"
       },
       point_6 : {
@@ -118,7 +119,7 @@ export const seedData = {
         latitude: "53.2154",
         longitude: "-6.6624",
         category:"Restaurant",
-        description:" A popular pub and restaurant located in the town center of Naas, County Kildare, Ireland. It is known for its live music, friendly atmosphere, and traditional Irish food and drinks.",
+        description:" A popular pub and restaurant located in the town center of Naas, County Kildare, Ireland.",
         placemarkid: "->placemarks.Naas"
       },
       point_7 : {
@@ -126,7 +127,7 @@ export const seedData = {
         latitude: "53.2209",
         longitude: "-6.6664",
         category:"Sports",
-        description:" The Naas GAA grounds are a sports complex that serves as the home of the Naas GAA club, which was founded in 1887 and is one of the oldest GAA clubs in Ireland. ",
+        description:" The Naas GAA grounds are a sports complex that serves as the home of the Naas GAA club. ",
         placemarkid: "->placemarks.Naas"
       },
       point_8 : {

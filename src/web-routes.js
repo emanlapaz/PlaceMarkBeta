@@ -31,7 +31,14 @@ export const webRoutes = [
 //  { method: "GET", path: "/users/{id}", config: userController.update },
 //  { method: "POST", path: "/user/{userid}/updateuser", config: userController.update },
 
+{ method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
+{ 
+  method: "DELETE", 
+  path: "/dashboard/placemark/{id}/deleteimage/{imgid}", 
+  config: placemarkController.deleteImage 
+},
 
 
-  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+
+{ method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];

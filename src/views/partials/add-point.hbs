@@ -1,35 +1,27 @@
 <form class="box" action="/placemark/{{placemark._id}}/addpoint" method="POST">
   <label>Enter Point Details:</label>
-  <div class="field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Point Name" name="pointName">
-      </div>
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Latitude" name="latitude">
-      </div>
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Longitude" name="longitude">
-      </div>
-      <div class="field">
-        <input class="input" type="text" placeholder="Enter Small Description" name="description">
-      </div>
-      <div class="field">
-        <div class="select">
-          <select name="category">
-            <option value="" disabled selected>Select a Category</option>
-           <option value="Nature">Nature</option>
-            <option value="Sports">Sports</option>
-            <option value="Health">Health</option>
-            <option value="Education">Education</option>
-            <option value="History">History</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Shop">Shop</option>
-            <option value="Parking Space">Parking Space</option>
-            <option value="Landmark">Landmark</option>
-          </select>
-        </div>
-      </div>
+  <div class="field is-vertical">
+    <input class="input" type="text" placeholder="Enter Point Name" name="pointName">
+    <br>
+    <input class="input" type="text" placeholder="Enter Latitude" name="latitude">
+    <br>
+    <input class="input" type="text" placeholder="Enter Longitude" name="longitude">
+    <br>
+    <input class="input" type="text" placeholder="Enter Small Description" name="description">
+    <br>
+    <div class="select">
+      <select name="category">
+        <option value="" disabled selected>Select a Category</option>
+        <option value="Nature">Nature</option>
+        <option value="Sports">Sports</option>
+        <option value="Health">Health</option>
+        <option value="Education">Education</option>
+        <option value="History">History</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Shop">Shop</option>
+        <option value="Parking Space">Parking Space</option>
+        <option value="Landmark">Landmark</option>
+      </select>
     </div>
   </div>
   <button class="button is-primary">Add Point</button>

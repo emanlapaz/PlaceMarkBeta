@@ -52,5 +52,14 @@ export const placemarkMongoStore = {
     console.log("Deleting all placemarks...");
     await Placemark.deleteMany({});
     console.log("All placemarks deleted");
-  }
+  },
+
+  async updatePlacemark(updatedPlacemark) {
+    const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
+    placemark.placeMark = updatedPlacemark.placeMark;
+    placemark.lat = updatedPlacemark.lat;
+    placemark.long = updatedPlacemark.long;
+    placemark.img = updatedPlacemark.img;
+    await placemark.save();
+  },
 };

@@ -2,17 +2,12 @@
   {{#each placemark.points}}
     <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
       <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img src="{{imageUrl}}" alt="{{pointName}}">
-          </figure>
-        </div>
-        <div class="card-content">
+        <div class="card-content is-fixed-size">
           <p class="title is-5">{{pointName}}</p>
           <p class="subtitle is-6">Latitude: {{latitude}}</p>
           <p class="subtitle is-6">Longitude: {{longitude}}</p>
           <p class="subtitle is-6">Category: {{category}}</p>
-          <p class="content">{{description}}</p>
+          <p class="content is-size-7">{{description}}</p>
         </div>
         <footer class="card-footer">
           <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="card-footer-item">Edit</a>
@@ -22,32 +17,3 @@
     </div>
   {{/each}}
 </div>
-
-
-
-
-{{!sort table}}
-<script>
-  function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch;
-    table = document.querySelector('.table');
-    switching = true;
-    while (switching) {
-      switching = false;
-      rows = table.rows;
-      for (i = 1; i < (rows.length - 1); i++) {
-        shouldSwitch = false;
-        x = rows[i].getElementsByTagName('TD')[n];
-        y = rows[i + 1].getElementsByTagName('TD')[n];
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      }
-      if (shouldSwitch) {
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-      }
-    }
-  }
-</script>
