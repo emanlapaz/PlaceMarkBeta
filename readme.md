@@ -12,7 +12,7 @@ Locations can be a City, Town, Counties, or Countries depending on the user.
 <img src="https://github.com/emanlapaz/PlacemarkBeta/blob/mongo/public/images/addPlacemarks.png">
 
 Points of Interests can be anything from landmarks, restaurants, etc.
-<img src="https://github.com/emanlapaz/PlacemarkBeta/blob/mongo/public/images/Points.png">
+<img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/public/images/Points.png">
 
 
 Inside each location, you can add points of interests by adding a Point Name and coordinates (latitude/longitude).
