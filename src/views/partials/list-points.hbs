@@ -1,29 +1,19 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Point</th>
-      <th>Category</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each placemark.points}}
-      <tr>
-        <td>
-          {{pointName}}{{!name or title}}
-        </td>
-        <td>
-          {{category}}
-        </td>
-        <td>
-          {{location}}
-        </td>
-        <td>
-          <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="ui icon button">
-          <i class="fas fa-trash"></i>
-          </a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="columns is-multiline is-mobile">
+  {{#each placemark.points}}
+    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+      <div class="card">
+        <div class="card-content is-fixed-size">
+          <p class="title is-5">{{pointName}}</p>
+          <p class="subtitle is-6">Latitude: {{latitude}}</p>
+          <p class="subtitle is-6">Longitude: {{longitude}}</p>
+          <p class="subtitle is-6">Category: {{category}}</p>
+          <p class="content is-size-7">{{description}}</p>
+        </div>
+        <footer class="card-footer">
+          <a href="/point/{{../placemark._id}}/editpoint/{{_id}}" class="card-footer-item">Edit</a>
+          <a href="/placemark/{{../placemark._id}}/deletepoint/{{_id}}" class="card-footer-item">Delete</a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>

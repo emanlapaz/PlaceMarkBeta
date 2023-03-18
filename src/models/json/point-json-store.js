@@ -43,9 +43,11 @@ export const pointJsonStore = {
   },
 
   async updatePoint(point, updatedPoint) {
-    point.pointName = updatedPoint.pointName; // name or title?
-    track.category = updatedPoint.category;
-    track.location = updatedPoint.location;
+    point.pointName = updatedPoint.pointName;
+    point.category = updatedPoint.category;
+    point.latitude = updatedPoint.latitude;
+    point.longitude = updatedPoint.longitude;
+    point.description = updatedPoint.description;
     await db.write();
   },
 };

@@ -2,6 +2,9 @@ import { aboutController } from "./controllers/about-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { placemarkController } from "./controllers/placemark-controller.js";
+import { pointController } from "./controllers/point-controller.js";
+import { userController } from "./controllers/user-controller.js";
+
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -21,5 +24,21 @@ export const webRoutes = [
   { method: "POST", path: "/placemark/{id}/addpoint", config: placemarkController.addPoint },
   { method: "GET", path: "/placemark/{id}/deletepoint/{pointid}", config: placemarkController.deletePoint },
 
+  { method: "GET", path: "/point/{id}/editpoint/{pointid}", config: pointController.index },
+  { method: "POST", path: "/point/{id}/updatepoint/{pointid}", config: pointController.update },
 
+//  { method: "GET", path: "/updateuser", config: accountsController.showEdit },
+//  { method: "GET", path: "/users/{id}", config: userController.update },
+//  { method: "POST", path: "/user/{userid}/updateuser", config: userController.update },
+
+{ method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
+{ 
+  method: "DELETE", 
+  path: "/dashboard/placemark/{id}/deleteimage/{imgid}", 
+  config: placemarkController.deleteImage 
+},
+
+
+
+{ method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];

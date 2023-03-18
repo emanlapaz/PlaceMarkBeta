@@ -23,19 +23,16 @@ export const db = {
         this.placemarkStore = placemarkJsonStore;
         this.pointStore = pointJsonStore;
         break;
-
       case "mongo":
         this.userStore = userMongoStore;
         this.placemarkStore = placemarkMongoStore;
         this.pointStore = pointMongoStore;
         connectMongo();
         break;
-        
       default:
         this.userStore = userMemStore;
         this.placemarkStore = placemarkMemStore;
-        this.pointStore = pointMemStore;
-        
+        this.pointStore = pointMemStore;  
     }
   },
 };

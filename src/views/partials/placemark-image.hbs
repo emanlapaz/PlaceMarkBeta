@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-content">
+     <p class="title is-5">Upload PlaceMark Image</p>
+    <form action="/placemark/{{placemark._id}}/uploadimage" method="POST" enctype="multipart/form-data">
+      <div class="field">
+        <div class="file has-name is-fullwidth">
+          <label class="file-label">
+            <input class="file-input" type="file" name="imagefile" accept="image/png, image/jpeg">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+            <span class="file-name"></span>
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="button is-info">Upload Image</button>
+    </form>
+    <br>
+    <form action="/dashboard/placemark/{{placemark._id}}/deleteimage/{{placemark.img}}" method="DELETE">
+  <button type="submit" class="button is-danger">Delete Image</button>
+</form>
+  </div>
+</div>
+
+<script>
+  const fileInput = document.querySelector(".file-input");
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector(".file-name");
+      fileName.textContent = fileInput.files[0].name;
+    }
+  };
+</script>

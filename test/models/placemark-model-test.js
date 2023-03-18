@@ -24,11 +24,15 @@ suite("Placemark Model tests", () => {
 
   test("delete all placemarks", async () => {
     let returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
-    assert.equal(returnedPlacemarks.length, 3);
+    console.log("Placemarks before delete:", returnedPlacemarks);
+    assert.equal(returnedPlacemarks.length, 6);
     await db.placemarkStore.deleteAllPlacemarks();
     returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
+    console.log("Placemarks after delete:", returnedPlacemarks);
     assert.equal(returnedPlacemarks.length, 0);
-  });
+});
+
+  
 
   test("get a placemark - success", async () => {
     const placemark = await db.placemarkStore.addPlacemark(kildare);

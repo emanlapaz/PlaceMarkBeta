@@ -2,8 +2,22 @@
 
 <section class="section">
   <div class="title">
-    {{placemark.mark}} {{!NAME OR TITLE?}}
+    {{placemark.placeMark}}
+    <div class="card-image">
+    <figure class="image is-256x256">
+      <img src="{{placemark.img}}">
+    </figure>
   </div>
+  </div>
+  
+  <div class="column">
+  </div>
+  <br>
+  {{>map}}
+   <br>
   {{> list-points}}
   {{> add-point}}
+  {{> placemark-image }}
+  <br>
+ 
 </section>

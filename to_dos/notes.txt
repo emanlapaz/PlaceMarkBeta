@@ -1,0 +1,13 @@
+1. open new shell +mongod
+2. open studio 3t
+3.start npm run start
+
+
+to do:
+group into categories
+add images
+use coordinates for weather and map location
+
+seed database
+cloudinary
+https://www.latlong.net/

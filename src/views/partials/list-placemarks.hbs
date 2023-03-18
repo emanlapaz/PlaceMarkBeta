@@ -1,7 +1,15 @@
+<style>
+  .coordinate {
+    font-size: 14px;
+  }
+</style>
+
 {{#each placemarks}}
   <div class="box box-link-hover-shadow">
     <h2 class="title">
-      {{placeMark}} {{!what to refactor>>> name??}}
+      {{placeMark}}
+       <p class="coordinate">Coordinates: {{lat}},{{long}}</p>
+       <p class="coordinate">Weather: {{lat}},{{long}}</p>
     </h2>
     <a href="/placemark/{{_id}}" class="button">
       <span class="icon is-small">

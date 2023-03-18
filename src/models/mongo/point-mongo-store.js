@@ -1,4 +1,5 @@
 import { Point } from "./point.js";
+import { Placemark } from "./placemark.js";
 
 export const pointMongoStore = {
   async getAllPoints() {
@@ -7,7 +8,7 @@ export const pointMongoStore = {
   },
 
   async addPoint(placemarkId, point) {
-    point.placemarktid = placemarkId;
+    point.placemarkid = placemarkId;
     const newPoint = new Point(point);
     const pointObj = await newPoint.save();
     return this.getPointById(pointObj._id);
@@ -39,9 +40,12 @@ export const pointMongoStore = {
   },
 
   async updatePoint(point, updatedPoint) {
-    point.pointName = updatedPoint.pointName;
-    point.category = updatedPoint.category;
-    track.location = updatedPoint.location;
-    await point.save();
+    const pointDoc = await Point.findOne({ _id: point._id });
+    pointDoc.pointName = updatedPoint.pointName;
+    pointDoc.category = updatedPoint.category;
+    pointDoc.latitude = updatedPoint.latitude;
+    pointDoc.longitude = updatedPoint.longitude;
+    pointDoc.description = updatedPoint.description;
+    await pointDoc.save();
   },
 };
