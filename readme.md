@@ -1,6 +1,6 @@
 Fullstack Assignment 1
 
-<img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/images/welcome.jpg">
+<img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/public/images/welcome.jpg">
 
 Welcome to PlaceMark Beta!
 
