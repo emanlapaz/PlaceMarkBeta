@@ -44,6 +44,7 @@ To dos:
 Bugs:
 1. Test fails on deleteallplacemarks at times. Something to do with the fixtures?
 2. Data entered are gone when app is closed. Must be something with the seeder overwriting the data on the data base during startup
+3. Sign up function failing- register
 
 
 
