@@ -5,31 +5,31 @@ export const seedData = {
         firstName: "Homer",
         lastName: "Simpson",
         email: "homer@simpson.com",
-        password: "123"
+        password: "$2a$10$KCxlnMsqinGeIwUQHNcP3OZg22mVBdPocYj1yPnFfd32Pc/WMMg72"
       },
       marge: {
         firstName: "Marge",
         lastName: "Simpson",
         email: "marge@simpson.com",
-        password: "123"
+        password: "$2a$10$rLzs0pDdszgSCbM7J6oCqeUFRKD5oQnpCpB8AijGhK.jAVgJD5KfW"
       },
       bart: {
         firstName: "Bart",
         lastName: "Simpson",
         email: "bart@simpson.com",
-        password: "123"
+        password: "$2a$10$NH/EqoVMj/Wo/I7SyA141OGQ/JjgWhZGaPGLP//jQLW2NfGZH.89G"
       },
       pablo: {
         firstName: "Pablo",
         lastName: "Simpson",
         email: "pablo@simpson.com",
-        password: "123"
+        password: "$2a$10$aDN1IOeSfKz.d6wOK1iNFu.IJjMqGvAbeCQ.vmCBW3k.gYlCYa8GK"
       },
       chapo: {
         firstName: "Chapo",
         lastName: "Simpson",
         email: "chapo@simpson.com",
-        password: "123"
+        password: "$2a$10$7sviota8xFAb1I8zEjGFJOBmGjYHMNQTszfpxBtHx.l23fnATSa82"
       },
     },
     placemarks: {
