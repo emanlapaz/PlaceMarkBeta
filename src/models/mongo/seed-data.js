@@ -45,30 +45,35 @@ export const seedData = {
         placeMark: "Dublin",
         lat: "53.34",
         long: "-6.26",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1685070459/ebb2pajkjqmbtw3opxyn.jpg",
         userid: "->users.homer"
       },
       Galway: {
         placeMark: "Galway",
         lat: "53.27",
         long: "-9.05",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1685070745/wkzhzgzriadgtwouwxqw.jpg",
         userid: "->users.homer"
       },
       Cork: {
         placeMark: "Cork",
         lat: "51.89",
         long: "-8.48",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1685070918/sdi4megrmpktnjgfrjbo.jpg",
         userid: "->users.homer"
       },
       Waterford: {
         placeMark: "Waterford",
         lat: "52.35",
         long: "-7.11",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1685070828/bnyim3uqdkwpooyrtk1z.jpg",
         userid: "->users.homer"
       },
       Letterkenny: {
         placeMark: "Letterkenny",
         lat: "54.94",
         long: "-7.73",
+        img: "https://res.cloudinary.com/dsagwvxx4/image/upload/v1685071024/zgmyhvuqwsd9diznvjux.jpg",
         userid: "->users.homer"
       }
     },

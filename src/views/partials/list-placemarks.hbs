@@ -3,21 +3,45 @@
     font-size: 14px;
   }
 </style>
-
-{{#each placemarks}}
-  <div class="box box-link-hover-shadow">
-    <h2 class="title">
-      {{placeMark}}
-       <p class="coordinate">Coordinates: {{lat}},{{long}}</p>
-       <p class="coordinate">Weather: {{lat}},{{long}}</p>
-    </h2>
-    <a href="/placemark/{{_id}}" class="button">
-      <span class="icon is-small">
-        <i class="fas fa-folder-open"></i>
-      </span>
-    </a>
-    <a href="/dashboard/deleteplacemark/{{_id}}" class="button">
-      <i class="fas fa-trash"></i>
-    </a>
+<h2>Placemark List</h2>
+<div class="card-container">
+  {{#each placemarks}}
+  <div class="card">
+    <div class="card-content">
+      <h2 class="title">
+        {{placeMark}}
+      </h2>
+      <p class="coordinate">Coordinates: {{lat}},{{long}}</p>
+      <div class="buttons">
+        <a href="/placemark/{{_id}}" class="button is-small">
+          <span class="icon">
+            <i class="fas fa-folder-open"></i>
+          </span>
+        </a>
+        <a href="/dashboard/deleteplacemark/{{_id}}" class="button is-small">
+          <span class="icon">
+            <i class="fas fa-trash"></i>
+          </span>
+        </a>
+      </div>
+    </div>
   </div>
-{{/each}}
+  {{/each}}
+</div>
+
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    /* Add other card styles */
+  }
+</style>
+
+
+

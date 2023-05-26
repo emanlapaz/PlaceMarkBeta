@@ -1,0 +1,54 @@
+{{> menu active="community"}}
+
+ <section class="section">
+  <p>Hello {{user.firstName}}!</p>
+  <p>Welcome to PlaceMark Community!</p>
+  <br>
+  </section>
+<section>
+<div class="card-container">
+  {{#each placemarks}}
+  <div class="card">
+    <div class="card-header">
+      <h3>{{placeMark}}</h3>
+      <p>{{description}}</p>
+    </div>
+    <div class="card-body">
+      <p>Latitude: {{lat}}</p>
+      <p>Longitude: {{long}}</p>
+      <p>Posted by: {{userid.firstName}} {{userid.lastName}}</p>
+      <p>Rating: {{rating}}</p>
+      <p>Votes: {{votes}}</p>
+    </div>
+    <div class="card-footer">
+      <img src="{{img}}" alt="Image">
+    </div>
+  </div>
+  {{/each}}
+</div>
+</section>
+<section class="section">
+  <div>
+      {{> dashmap}}
+  </div>
+</section>
+
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    /* Add other card styles */
+  }
+</style>
+
+  
+
+
+
+

@@ -32,8 +32,6 @@ export const dashboardController = {
         placeMark: request.payload.placeMark,
         lat: request.payload.lat,
         long: request.payload.long,
-
-
       };
       console.log("New Placemark: ", newPlaceMark);
       await db.placemarkStore.addPlacemark(newPlaceMark);

@@ -9,6 +9,15 @@ export const placemarkMongoStore = {
     return placemarks;
   },
 
+  async getAllUserPlacemarks() {
+    console.log("Getting all user placemarks...");
+    const placemarks = await Placemark.find().populate("userid").lean();
+    console.log("All user placemarks retrieved:", placemarks);
+    return placemarks;
+  },
+  
+
+
   async getPlacemarkById(id) {
     console.log("Getting placemark by ID:", id);
     if (id) {
