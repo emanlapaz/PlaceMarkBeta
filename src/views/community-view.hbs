@@ -19,6 +19,12 @@
       <p>Posted by: {{userid.firstName}} {{userid.lastName}}</p>
       <p>Rating: {{rating}}</p>
       <p>Votes: {{votes}}</p>
+      <h4>Points:</h4>
+      <ul>
+        {{#each points}}
+        <li>{{this.pointName}}: {{this.latitude}}, {{this.longitude}}</li>
+        {{/each}}
+      </ul>
     </div>
     <div class="card-footer">
       <img src="{{img}}" alt="Image">
@@ -46,9 +52,3 @@
     /* Add other card styles */
   }
 </style>
-
-  
-
-
-
-
