@@ -52,17 +52,21 @@ export const accountsController = {
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         console.log("signup failAction called with error:", error);
-        return h.view("signup-view", {title: "Sign up error", errors: error.details,}).takeover().code(400);
+        return h
+          .view("signup-view", { title: "Sign up error", errors: error.details })
+          .takeover()
+          .code(400);
       },
     },
     handler: async function (request, h) {
       console.log("signup handler called with payload:", request.payload);
       const user = request.payload;
       user.password = await bcrypt.hash(user.password, saltRounds);
-      await db.userStore.updateUser(user);
+      await db.userStore.addUser(user); // Use addUser to add a new user
       return h.redirect("/");
     },
   },
+  
   showLogin: {
     auth: false,
     handler: function (request, h) {
