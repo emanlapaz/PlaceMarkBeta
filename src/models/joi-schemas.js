@@ -45,7 +45,7 @@ export const PlacemarkSpec = Joi.object()
     placeMark: Joi.string().required().example("Dublin"),
     lat: Joi.string().required().example("12.00"),
     long: Joi.string().required().example("-12.00"),
-    isPrivate: Joi.boolean().optional(),
+    privacy: Joi.string().valid("public", "private").required(),
     userid: IdSpec,
     points: PointArraySpec,
   })

@@ -30,17 +30,18 @@ export const editPlacemarkController = {
     },
     handler: async function (request, h) {
       try {
-        const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-    
-        if (!placemark) {
-          throw new Error("Placemark not found");
-        }
-    
-        const { placeMark, lat, long, isPrivate } = request.payload;
-        const isPrivateBoolean = isPrivate === "true";  // assuming 'true' string means private
-    
-        await db.placemarkStore.updatePlacemarkById(placemark._id, placeMark, lat, long, isPrivateBoolean);
-    
+        const placemarkId = request.params.id;
+        const { placeMark, lat, long, privacy } = request.payload;
+        const isPrivate = privacy === "private";
+
+        await db.placemarkStore.updatePlacemarkById(
+          placemarkId,
+          placeMark,
+          lat,
+          long,
+          isPrivate
+        );
+
         return h.redirect("/dashboard");
       } catch (error) {
         console.log("placemarkController update - error:", error);

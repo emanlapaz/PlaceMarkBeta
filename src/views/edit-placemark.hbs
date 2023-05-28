@@ -1,29 +1,25 @@
 {{> menu}}
 
-
-  <section>  <h1>Update PlaceMark Details:</h1></section>
-
- 
 <form class="box" action="/dashboard/editplacemark/{{placemarkId}}" method="POST">
- 
+  <label class="label">Update PlaceMark Details:</label>
   <div class="field is-horizontal">
     <div class="field-body">
-      <div class="field">      <label class="label">Placemark Location</label>
+      <div class="field">   <label class="label">Placemark Location:</label>
         <input class="input" type="text" name="placeMark" value="{{placeMark}}">
       </div>
-      <div class="field">       <label class="label">Placemark Location</label>
+      <div class="field">   <label class="label">Latitude:</label>
         <input class="input" type="text" name="lat" value="{{lat}}">
       </div>
-      <div class="field">       <label class="label">Placemark Location</label>
+      <div class="field">   <label class="label">Longitude:</label>
         <input class="input" type="text" name="long" value="{{long}}">
       </div>
       <div class="field">
-        <label class="label">Private</label>
+        <label class="label">Privacy:</label>
         <div class="control">
           <div class="select">
-            <select name="isPrivate">
-              <option value="false" {{^if isPrivate}}selected{{/if}}>No</option>
-              <option value="true" {{#if isPrivate}}selected{{/if}}>Yes</option>
+            <select name="privacy">
+              <option value="public" {{#if isPublic}}selected{{/if}}>Public</option>
+              <option value="private" {{#if isPrivate}}selected{{/if}}>Private</option>
             </select>
           </div>
         </div>

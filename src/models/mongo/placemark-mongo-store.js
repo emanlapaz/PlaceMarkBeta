@@ -1,6 +1,7 @@
 import { Placemark } from "./placemark.js";
 import { pointMongoStore } from "./point-mongo-store.js";
 
+
 export const placemarkMongoStore = {
   async getAllPlacemarks() {
     console.log("Getting all placemarks...");
@@ -39,20 +40,30 @@ export const placemarkMongoStore = {
   },
 
   async updatePlacemarkById(id, newPlaceMark, newLat, newLong, newIsPrivate) {
-    const placemark = await this.getPlacemarkById(id);
-    if (placemark) {
-      placemark.placeMark = newPlaceMark;
-      placemark.lat = newLat;
-      placemark.long = newLong;
-      placemark.isPrivate = newIsPrivate;
-
-      await Placemark.updateOne({ _id: id }, placemark);
-      console.log("Placemark updated:", placemark);
-    } else {
-      console.log("Placemark not found with ID:", id);
+    try {
+      const updatedPlacemark = await Placemark.findByIdAndUpdate(
+        id,
+        {
+          placeMark: newPlaceMark,
+          lat: newLat,
+          long: newLong,
+          isPrivate: newIsPrivate,
+        },
+        { new: true }
+      );
+  
+      if (updatedPlacemark) {
+        console.log("Placemark updated:", updatedPlacemark);
+      } else {
+        console.log("Placemark not found with ID:", id);
+      }
+    } catch (error) {
+      console.log("Error updating placemark:", error);
+      throw error;
     }
   },
-
+  
+  
   
   
   async getUserPlacemarks(id) {
