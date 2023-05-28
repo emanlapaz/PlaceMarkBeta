@@ -1,4 +1,4 @@
-Fullstack Assignment 1
+Fullstack Assignment 1: Placemark Beta
 
 <img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/public/images/welcome.jpg">
 
@@ -46,6 +46,8 @@ Bugs:
 2. Data entered are gone when app is closed. Must be something with the seeder overwriting the data on the data base during startup
 3. Sign up function failing- register
 
-
-
 Render Web Service Link: https://placemarkbeta1-0.onrender.com
+
+
+Fullstack Assignment 1: Placemark Beta v2 Community Version
+Changes and features:
