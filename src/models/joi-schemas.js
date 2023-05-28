@@ -45,10 +45,12 @@ export const PlacemarkSpec = Joi.object()
     placeMark: Joi.string().required().example("Dublin"),
     lat: Joi.string().required().example("12.00"),
     long: Joi.string().required().example("-12.00"),
+    isPrivate: Joi.boolean().optional(),
     userid: IdSpec,
     points: PointArraySpec,
   })
   .label("Placemarklist");
+
 
 export const PlacemarkSpecPlus = PlacemarkSpec.keys({
   _id: IdSpec,

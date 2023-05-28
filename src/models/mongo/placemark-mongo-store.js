@@ -11,7 +11,7 @@ export const placemarkMongoStore = {
 
   async getAllUserPlacemarks() {
     console.log("Getting all user placemarks...");
-    const placemarks = await Placemark.find().populate("userid").lean();
+    const placemarks = await Placemark.find({ isPrivate: false }).populate("userid").lean();
     console.log("All user placemarks retrieved:", placemarks);
     return placemarks;
   },
