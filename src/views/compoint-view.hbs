@@ -1,0 +1,42 @@
+{{> menu}}
+
+
+<section class="section">
+
+  <p>Welcome to PlaceMark Community!</p>
+  <p>Point View</p>
+  <br>
+</section>
+<section class="section">
+  <div class="title">
+    {{placemark.placeMark}}
+    <div class="card-image">
+      <figure class="image is-256x256">
+        <img src="{{placemark.img}}">
+      </figure>
+    </div>
+  </div>
+  
+  <div class="column">
+  </div>
+  <br>
+  {{>map}}
+  <br>
+  <div class="columns is-multiline is-mobile">
+  {{#each placemark.points}}
+    <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+      <div class="card">
+        <div class="card-content is-fixed-size">
+          <p class="title is-5">{{pointName}}</p>
+          <p class="subtitle is-6">Latitude: {{latitude}}</p>
+          <p class="subtitle is-6">Longitude: {{longitude}}</p>
+          <p class="subtitle is-6">Category: {{category}}</p>
+          <p class="content is-size-7">{{description}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+  <br>
+</section>

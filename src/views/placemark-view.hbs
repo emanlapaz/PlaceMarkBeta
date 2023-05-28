@@ -4,10 +4,14 @@
   <div class="title">
     {{placemark.placeMark}}
     <div class="card-image">
-    <figure class="image is-256x256">
-      <img src="{{placemark.img}}">
-    </figure>
-  </div>
+      <figure class="image is-256x256">
+        {{#if placemark.img}}
+          <img src="{{placemark.img}}">
+        {{else}}
+          <img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/public/images/welcome.jpg">
+        {{/if}}
+      </figure>
+    </div>
   </div>
   
   <div class="column">

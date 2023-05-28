@@ -35,6 +35,8 @@ export const webRoutes = [
 
   { method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
   { method: "DELETE", path: "/dashboard/placemark/{id}/deleteimage/{imgid}", config: placemarkController.deleteImage },
+  
+  { method: "GET", path: "/compoint/{id}", config: placemarkController.compointView },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];
