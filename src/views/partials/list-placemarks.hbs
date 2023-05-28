@@ -2,22 +2,87 @@
   .coordinate {
     font-size: 14px;
   }
+
+  .private-icon {
+    color: red;
+    margin-left: 10px;
+  }
+
+  .edit-icon {
+    color: blue;
+    margin-left: 10px;
+  }
+
+  .legend {
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+  }
+
+  h1 {
+    font-size: 45px;
+    font-weight: bold;
+  }
 </style>
 
-{{#each placemarks}}
-  <div class="box box-link-hover-shadow">
-    <h2 class="title">
-      {{placeMark}}
-       <p class="coordinate">Coordinates: {{lat}},{{long}}</p>
-       <p class="coordinate">Weather: {{lat}},{{long}}</p>
-    </h2>
-    <a href="/placemark/{{_id}}" class="button">
-      <span class="icon is-small">
-        <i class="fas fa-folder-open"></i>
-      </span>
-    </a>
-    <a href="/dashboard/deleteplacemark/{{_id}}" class="button">
-      <i class="fas fa-trash"></i>
-    </a>
+<h1>My Placemarks:</h1>
+
+<div class="card-container">
+  {{#each placemarks}}
+  <div class="card">
+    <div class="card-content">
+      <h2 class="title">
+        {{placeMark}}
+        {{#if isPrivate}}
+        <i class="fas fa-lock private-icon"></i>
+        {{else}}
+        <i class="fas fa-globe"></i>
+        {{/if}}
+      </h2>
+      <p class="coordinate">Coordinates: {{lat}},{{long}}</p>
+      <div class="buttons">
+        <a href="/placemark/{{_id}}" class="button is-small">
+          <span class="icon">
+            <i class="fas fa-folder-open"></i>
+          </span>
+        </a>
+        <a href="/dashboard/deleteplacemark/{{_id}}" class="button is-small">
+          <span class="icon">
+            <i class="fas fa-trash"></i>
+          </span>
+        </a>
+        <a href="/dashboard/editplacemark/{{_id}}" class="button is-small">
+          <span class="icon">
+            <i class="fas fa-pencil-alt edit-icon"></i>
+          </span>
+        </a>
+        <div class="card-footer">
+          <img src="{{img}}" alt="Image">
+        </div>
+      </div>
+      <div class="legend">
+        {{#if isPrivate}}
+        <span>Private</span>
+        {{else}}
+        <span>Public</span>
+        {{/if}}
+      </div>
+    </div>
   </div>
-{{/each}}
+  {{/each}}
+</div>
+
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    /* Add other card styles */
+  }
+</style>

@@ -112,11 +112,17 @@ export const placemarkController = {
         return h.response("Error deleting image").code(500);
       }
     },
-  }
-  
-  
-  
-  
-
-  
+    },
+    compointView: {
+      handler: async function (request, h) {
+        console.log("Fetching placemark with ID:", request.params.id);
+        const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+        console.log("Placemark retrieved:", placemark);
+        const viewData = {
+          title: "Compoint View",
+          placemark: placemark,
+        };
+        return h.view("compoint-view", viewData);
+      },
+  },  
 };

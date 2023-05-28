@@ -1,5 +1,7 @@
+import Joi from "joi";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+
 
 export const dashboardController = {
   index: {
@@ -16,9 +18,9 @@ export const dashboardController = {
     },
   },
 
-  addPlacemark: { 
+  addPlacemark: {
     validate: {
-      payload: PlacemarkSpec,
+      payload: PlacemarkSpec.keys({ privacy: Joi.string().valid("public", "private").optional() }),
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         console.log("Add Placemark error: ", error);
@@ -32,14 +34,14 @@ export const dashboardController = {
         placeMark: request.payload.placeMark,
         lat: request.payload.lat,
         long: request.payload.long,
-
-
+        isPrivate: request.payload.privacy === "private",
       };
       console.log("New Placemark: ", newPlaceMark);
       await db.placemarkStore.addPlacemark(newPlaceMark);
       return h.redirect("/dashboard");
     },
   },
+  
 
   deletePlacemark: {
     handler: async function (request, h) {

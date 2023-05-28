@@ -1,28 +1,40 @@
-<form action="/dashboard/addplacemark" method="POST">
+<form class="edit-placemark" action="/dashboard/addplacemark" method="POST">
   <div class="field">
     <label class="label">Placemark Locations</label>
     <div class="control">
-      <input class="input" type="text" placeholder="Enter Place Mark" name="placeMark">
+      <input class="input" type="text" placeholder="Enter Place Mark" name="placeMark" value="{{placeMark}}">
     </div>
   </div>
 
   <div class="field">
     <label class="label">Latitude</label>
     <div class="control">
-      <input class="input" type="text" placeholder="Enter Latitude" name="lat">
+      <input class="input" type="text" placeholder="Enter Latitude" name="lat" value="{{lat}}">
     </div>
   </div>
 
   <div class="field">
     <label class="label">Longitude</label>
     <div class="control">
-      <input class="input" type="text" placeholder="Enter Longitude" name="long">
+      <input class="input" type="text" placeholder="Enter Longitude" name="long" value="{{long}}">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Privacy</label>
+    <div class="control">
+      <div class="select">
+        <select name="privacy">
+          <option value="public" {{#unless isPrivate}}selected{{/unless}}>Public</option>
+          <option value="private" {{#if isPrivate}}selected{{/if}}>Private</option>
+        </select>
+      </div>
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <button class="button is-link">Add Place Mark</button>
+      <button class="button is-link">Add Placemark</button>
     </div>
   </div>
 </form>

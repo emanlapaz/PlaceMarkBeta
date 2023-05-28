@@ -11,6 +11,7 @@ const placemarkSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  isPrivate: { type: Boolean, required: false },
 });
 
 export const Placemark = Mongoose.model("Placemark", placemarkSchema);

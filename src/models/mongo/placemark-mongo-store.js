@@ -1,11 +1,19 @@
 import { Placemark } from "./placemark.js";
 import { pointMongoStore } from "./point-mongo-store.js";
 
+
 export const placemarkMongoStore = {
   async getAllPlacemarks() {
     console.log("Getting all placemarks...");
     const placemarks = await Placemark.find().lean();
     console.log("Placemarks retrieved:", placemarks);
+    return placemarks;
+  },
+
+  async getAllUserPlacemarks() {
+    console.log("Getting all user placemarks...");
+    const placemarks = await Placemark.find({ isPrivate: false }).populate("userid").lean();
+    console.log("All user placemarks retrieved:", placemarks);
     return placemarks;
   },
 
@@ -31,6 +39,33 @@ export const placemarkMongoStore = {
     return this.getPlacemarkById(placemarkObj._id);
   },
 
+  async updatePlacemarkById(id, newPlaceMark, newLat, newLong, newIsPrivate) {
+    try {
+      const updatedPlacemark = await Placemark.findByIdAndUpdate(
+        id,
+        {
+          placeMark: newPlaceMark,
+          lat: newLat,
+          long: newLong,
+          isPrivate: newIsPrivate,
+        },
+        { new: true }
+      );
+  
+      if (updatedPlacemark) {
+        console.log("Placemark updated:", updatedPlacemark);
+      } else {
+        console.log("Placemark not found with ID:", id);
+      }
+    } catch (error) {
+      console.log("Error updating placemark:", error);
+      throw error;
+    }
+  },
+  
+  
+  
+  
   async getUserPlacemarks(id) {
     console.log("Getting user placemarks for user ID:", id);
     const placemark = await Placemark.find({ userid: id }).lean();
@@ -52,14 +87,5 @@ export const placemarkMongoStore = {
     console.log("Deleting all placemarks...");
     await Placemark.deleteMany({});
     console.log("All placemarks deleted");
-  },
-
-  async updatePlacemark(updatedPlacemark) {
-    const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
-    placemark.placeMark = updatedPlacemark.placeMark;
-    placemark.lat = updatedPlacemark.lat;
-    placemark.long = updatedPlacemark.long;
-    placemark.img = updatedPlacemark.img;
-    await placemark.save();
   },
 };

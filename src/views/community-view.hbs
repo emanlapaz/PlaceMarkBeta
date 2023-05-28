@@ -1,0 +1,67 @@
+{{> menu active="community"}}
+
+<section class="section">
+  <p>Hello {{user.firstName}}!</p>
+  <p>Welcome to PlaceMark Community!</p>
+  <br>
+</section>
+
+<section class="section">
+  <div>
+    {{> dashmap}}
+  </div>
+</section>
+
+<section>
+  <div class="card-container">
+    {{#each placemarks}} 
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{placeMark}}
+          <div class="buttons">
+            <a href="/compoint/{{_id}}" class="button is-small">
+              <span class="icon">
+                <i class="fas fa-folder-open"></i>
+              </span>
+            </a>
+          </div>
+        </h3>
+        <p>{{description}}</p>
+      </div>
+      <div class="card-body">
+        <p>Posted by: {{userid.firstName}} {{userid.lastName}}</p>
+        <p>Latitude: {{lat}}</p>
+        <p>Longitude: {{long}}</p>
+        <br>
+        <h4>Number of Points: {{points.length}}</h4>
+        <ul>
+          {{#each points}}
+          <li>{{this.pointName}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="card-footer">
+        <img src="{{img}}" alt="Image">
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    /* Add other card styles */
+  }
+
+  .card-header {
+    font-size: 24px;
+  }
+</style>
