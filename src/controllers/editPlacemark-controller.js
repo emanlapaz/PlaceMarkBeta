@@ -31,22 +31,16 @@ export const editPlacemarkController = {
     handler: async function (request, h) {
       try {
         const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-
+    
         if (!placemark) {
           throw new Error("Placemark not found");
         }
-  
-        const { placeMark, latitude, longitude, isPrivate } = request.payload;
-        const updatedPlacemark = {
-          ...placemark,
-          placeMark: placeMark,
-          lat: latitude,
-          long: longitude,
-          isPrivate: isPrivate === "true",
-        };
-        
-        await db.placemarkStore.updatePlacemarkById(placemark._id, placeMark, latitude, longitude, isPrivate === "true");
-  
+    
+        const { placeMark, lat, long, isPrivate } = request.payload;
+        const isPrivateBoolean = isPrivate === "true";  // assuming 'true' string means private
+    
+        await db.placemarkStore.updatePlacemarkById(placemark._id, placeMark, lat, long, isPrivateBoolean);
+    
         return h.redirect("/dashboard");
       } catch (error) {
         console.log("placemarkController update - error:", error);
@@ -56,6 +50,5 @@ export const editPlacemarkController = {
         });
       }
     },
-  },
-  
+  }
 };

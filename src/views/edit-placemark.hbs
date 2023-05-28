@@ -1,34 +1,31 @@
 {{> menu}}
 
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Placemark</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-</table>
+
+  <section>  <h1>Update PlaceMark Details:</h1></section>
+
+ 
 <form class="box" action="/dashboard/editplacemark/{{placemarkId}}" method="POST">
-  <label>Update PlaceMark Details:</label>
+ 
   <div class="field is-horizontal">
     <div class="field-body">
-      <div class="field">
+      <div class="field">      <label class="label">Placemark Location</label>
         <input class="input" type="text" name="placeMark" value="{{placeMark}}">
       </div>
-      <div class="field">
+      <div class="field">       <label class="label">Placemark Location</label>
         <input class="input" type="text" name="lat" value="{{lat}}">
       </div>
-      <div class="field">
+      <div class="field">       <label class="label">Placemark Location</label>
         <input class="input" type="text" name="long" value="{{long}}">
       </div>
       <div class="field">
         <label class="label">Private</label>
         <div class="control">
-          <label class="checkbox">
-            <input type="checkbox" name="isPrivate" {{#if isPrivate}} checked {{/if}}> Make this placemark private
-          </label>
+          <div class="select">
+            <select name="isPrivate">
+              <option value="false" {{^if isPrivate}}selected{{/if}}>No</option>
+              <option value="true" {{#if isPrivate}}selected{{/if}}>Yes</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
