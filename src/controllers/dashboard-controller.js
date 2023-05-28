@@ -18,9 +18,9 @@ export const dashboardController = {
     },
   },
 
-  addPlacemark: { 
+  addPlacemark: {
     validate: {
-      payload: PlacemarkSpec.keys({ isPrivate: Joi.string().valid("on", "").optional() }),
+      payload: PlacemarkSpec.keys({ privacy: Joi.string().valid("public", "private").optional() }),
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         console.log("Add Placemark error: ", error);
@@ -34,7 +34,7 @@ export const dashboardController = {
         placeMark: request.payload.placeMark,
         lat: request.payload.lat,
         long: request.payload.long,
-        isPrivate: request.payload.isPrivate === "on",
+        isPrivate: request.payload.privacy === "private",
       };
       console.log("New Placemark: ", newPlaceMark);
       await db.placemarkStore.addPlacemark(newPlaceMark);
