@@ -8,6 +8,11 @@
     margin-left: 10px;
   }
 
+  .edit-icon {
+    color: blue;
+    margin-left: 10px;
+  }
+
   .legend {
     margin-top: 10px;
     font-size: 12px;
@@ -47,21 +52,11 @@
             <i class="fas fa-trash"></i>
           </span>
         </a>
-        {{#if isPrivate}}
-        <a href="/dashboard/changepublic/{{_id}}" class="button is-small">
+        <a href="/dashboard/editplacemark/{{_id}}" class="button is-small">
           <span class="icon">
-            <i class="fas fa-globe"></i>
+            <i class="fas fa-pencil-alt edit-icon"></i>
           </span>
-          Change to Public
         </a>
-        {{else}}
-        <a href="/dashboard/changeprivate/{{_id}}" class="button is-small">
-          <span class="icon">
-            <i class="fas fa-lock"></i>
-          </span>
-          Change to Private
-        </a>
-        {{/if}}
         <div class="card-footer">
           <img src="{{img}}" alt="Image">
         </div>

@@ -15,8 +15,6 @@ export const placemarkMongoStore = {
     console.log("All user placemarks retrieved:", placemarks);
     return placemarks;
   },
-  
-
 
   async getPlacemarkById(id) {
     console.log("Getting placemark by ID:", id);
@@ -40,6 +38,23 @@ export const placemarkMongoStore = {
     return this.getPlacemarkById(placemarkObj._id);
   },
 
+  async updatePlacemarkById(id, newPlaceMark, newLat, newLong, newIsPrivate) {
+    const placemark = await this.getPlacemarkById(id);
+    if (placemark) {
+      placemark.placeMark = newPlaceMark;
+      placemark.lat = newLat;
+      placemark.long = newLong;
+      placemark.isPrivate = newIsPrivate;
+
+      await Placemark.updateOne({ _id: id }, placemark);
+      console.log("Placemark updated:", placemark);
+    } else {
+      console.log("Placemark not found with ID:", id);
+    }
+  },
+
+  
+  
   async getUserPlacemarks(id) {
     console.log("Getting user placemarks for user ID:", id);
     const placemark = await Placemark.find({ userid: id }).lean();
@@ -61,14 +76,5 @@ export const placemarkMongoStore = {
     console.log("Deleting all placemarks...");
     await Placemark.deleteMany({});
     console.log("All placemarks deleted");
-  },
-
-  async updatePlacemark(updatedPlacemark) {
-    const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
-    placemark.placeMark = updatedPlacemark.placeMark;
-    placemark.lat = updatedPlacemark.lat;
-    placemark.long = updatedPlacemark.long;
-    placemark.img = updatedPlacemark.img;
-    await placemark.save();
   },
 };
