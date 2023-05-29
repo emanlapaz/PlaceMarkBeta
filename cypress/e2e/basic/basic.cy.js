@@ -19,15 +19,12 @@ describe("Signup and Login", () => {
     cy.get("input[name=\"password\"]").type(password);
     cy.get("form").submit();
 
-    // Go to the login page
     cy.visit("https://placemarkbeta-community.onrender.com/login");
 
-    // Log in with the same credentials
     cy.get("input[name=\"email\"]").type(email);
     cy.get("input[name=\"password\"]").type(password);
     cy.get("form").submit();
 
-    // Assert that the login was successful
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", `Hello ${  firstName}`);
   });
@@ -36,57 +33,57 @@ describe("Signup and Login", () => {
 
 describe("Login-addplacemarks", () => {
   beforeEach(() => {
-    cy.visit("https://placemarkbeta-community.onrender.com/login"); // Visit the login page before each test
+    cy.visit("https://placemarkbeta-community.onrender.com/login");
   });
 
   before(() => {
-    // Configure uncaught exception handling
+    
     Cypress.on("uncaught:exception", (err, runnable) => 
-      // Return false to prevent the error from failing the test
+ 
        false
     );
   });
 
   it("should add a public placemark successfully", () => {
-    // Log in with valid credentials
+   
     cy.get("input[name=\"email\"]").type("homer@simpson.com");
     cy.get("input[name=\"password\"]").type("123");
     cy.get("form").submit();
 
-    // Assert the successful login
+ 
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", "Hello Homer");
 
-    // Add a public placemark
+  
     cy.get("input[name=\"placeMark\"]").type("New Public Placemark");
-    cy.get("input[name=\"lat\"]").type("51.5074"); // Enter latitude value
-    cy.get("input[name=\"long\"]").type("-0.1278"); // Enter longitude value
-    cy.get("select[name=\"privacy\"]").select("public"); // Set privacy to public
-    cy.get("form.edit-placemark").submit(); // Submit the form
+    cy.get("input[name=\"lat\"]").type("51.5074"); 
+    cy.get("input[name=\"long\"]").type("-0.1278"); 
+    cy.get("select[name=\"privacy\"]").select("public"); 
+    cy.get("form.edit-placemark").submit();
 
-    // Assert that the placemark was added successfully
+    
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", "New Public Placemark");
   });
 
   it("should add a private placemark successfully", () => {
-    // Log in with valid credentials
+   
     cy.get("input[name=\"email\"]").type("homer@simpson.com");
     cy.get("input[name=\"password\"]").type("123");
     cy.get("form").submit();
 
-    // Assert the successful login
+    
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", "Hello Homer");
 
-    // Add a private placemark
+  
     cy.get("input[name=\"placeMark\"]").type("New Private Placemark");
-    cy.get("input[name=\"lat\"]").type("51.5074"); // Enter latitude value
-    cy.get("input[name=\"long\"]").type("-0.1278"); // Enter longitude value
-    cy.get("select[name=\"privacy\"]").select("private"); // Set privacy to private
-    cy.get("form.edit-placemark").submit(); // Submit the form
+    cy.get("input[name=\"lat\"]").type("51.5074"); 
+    cy.get("input[name=\"long\"]").type("-0.1278"); 
+    cy.get("select[name=\"privacy\"]").select("private"); 
+    cy.get("form.edit-placemark").submit();
 
-    // Assert that the placemark was added successfully
+   
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", "New Private Placemark");
   });
@@ -123,7 +120,7 @@ describe("Add Point to Placemark", () => {
 
 describe("Update Placemark Privacy", () => {
   beforeEach(() => {
-    cy.visit("https://placemarkbeta-community.onrender.com/login"); // Visit the login page before each test
+    cy.visit("https://placemarkbeta-community.onrender.com/login"); 
   });
 
   before(() => {
@@ -131,43 +128,43 @@ describe("Update Placemark Privacy", () => {
   });
 
   it("should update the placemark privacy to private", () => {
-    // Log in with valid credentials
+    
     cy.get("input[name=\"email\"]").type("homer@simpson.com");
     cy.get("input[name=\"password\"]").type("123");
     cy.get("form").submit();
 
-    // Assert the successful login
+    
     cy.url().should("include", "placemarkbeta-community");
     cy.get("body").should("contain", "Hello Homer");
 
-    // Go to the edit placemark page
+    
     cy.visit("https://placemarkbeta-community.onrender.com/dashboard/editplacemark/6473874c63e5309a2a97856f");
 
-    // Change the privacy to private
+    
     cy.get("select[name=\"privacy\"]").select("private");
 
-    // Submit the form to update the placemark
+    
     cy.get("form.box").submit();
 
   });
 
 it("should update the placemark privacy to public", () => {
-  // Log in with valid credentials
+  
   cy.get("input[name=\"email\"]").type("homer@simpson.com");
   cy.get("input[name=\"password\"]").type("123");
   cy.get("form").submit();
 
-  // Assert the successful login
+ 
   cy.url().should("include", "placemarkbeta-community");
   cy.get("body").should("contain", "Hello Homer");
 
-  // Go to the edit placemark page
+  
   cy.visit("https://placemarkbeta-community.onrender.com/dashboard/editplacemark/6473874c63e5309a2a97856f");
 
-  // Change the privacy to public
+  
   cy.get("select[name=\"privacy\"]").select("public");
 
-  // Submit the form to update the placemark
+  
   cy.get("form.box").submit();
 
 });
