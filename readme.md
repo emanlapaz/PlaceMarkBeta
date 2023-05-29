@@ -1,9 +1,39 @@
-Fullstack Assignment 1: Placemark Beta
-
+Welcome to PlaceMark Community Version!
 <img src="https://github.com/emanlapaz/PlacemarkBeta/blob/master/public/images/welcome.jpg">
 
-Welcome to PlaceMark Beta!
+Assignment 2: 
+URL https://placemarkbeta-community.onrender.com
 
+Changes and features:
+
+UI:
+1. Created a Community Tab in which users can share their Placemark Location with other users.
+2. Users can toggle their placemarks between Private and Public.
+3. Users can edit Placemark location name, coordinates and Privacy status.
+4. Placemark list changed to cards
+5. Leaflet maps on different pages
+
+Security:
+1. Password Hashed and Salted using Bcrypt
+
+Testing:
+1. Cypress e2e testing for signup/login, adding placemarks
+
+Tech:
+1. Mongo Atlas DB
+2. Render for deployment
+
+To dos:
+1. Add social functionality on the Community tab such as reviews, noticeboards, Vote/rating system
+2. Improve Cypress e2e testing
+3. Improve UI
+4. Add Map layers and Weather Status
+
+
+================================================================================================
+================================================================================================
+Welcome to PlaceMark Beta!
+Fullstack Assignment 1: Placemark Beta
 Render Web Service Link: https://placemarkbeta1-0.onrender.com
 
 How it works:
@@ -49,7 +79,4 @@ Bugs:
 Render Web Service Link: https://placemarkbeta1-0.onrender.com
 
 
-Fullstack Assignment 1: Placemark Beta v2 Community Version
 
-URL https://placemarkbeta-community.onrender.com
-Changes and features:
