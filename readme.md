@@ -8,10 +8,24 @@ Changes and features:
 
 UI:
 1. Created a Community Tab in which users can share their Placemark Location with other users.
+
+<img src="https://github.com/emanlapaz/PlacemarkBeta/assets/96552779/aa63ed24-4e68-4268-bf80-e8e5e3b84a5b">
+<img src="https://github.com/emanlapaz/PlacemarkBeta/assets/96552779/2ef0643b-e255-475b-8292-8131fe8ab28f">
+
 2. Users can toggle their placemarks between Private and Public.
+
+<img src="https://github.com/emanlapaz/PlacemarkBeta/assets/96552779/e227fe45-8fcd-4587-9264-27b70e59a24e">
+
 3. Users can edit Placemark location name, coordinates and Privacy status.
-4. Placemark list changed to cards
-5. Leaflet maps on different pages
+
+<img src="https://github.com/emanlapaz/PlacemarkBeta/assets/96552779/bbff8156-1b99-43df-a8f0-fba646683be8">
+
+6. Placemark list changed to cards
+7. Leaflet maps on different pages
+
+
+
+
 
 Security:
 1. Password Hashed and Salted using Bcrypt
